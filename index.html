@@ -34,8 +34,9 @@
         <!-- ENCABEZADO CON LOGO -->
         <div class="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between pb-4 border-b-2 border-gray-200">
             <h1 class="text-3xl font-bold text-blue-800 mb-4 sm:mb-0">Análisis de Mejoras: Catálogo de Tipificación</h1>
-            <!-- Logo de Afore Coppel -->
-            <img src="https://storage.googleapis.com/afore-coppel-assets/nuevo-logo-afore.png" alt="Logo Afore Coppel" class="h-10">
+            <!-- Logo de Afore Coppel - Se cambió la ruta a una relativa -->
+            <!-- Asegúrate de que 'Nuevo Logo Afore.png' esté en la misma carpeta 'docs' que este archivo HTML. -->
+            <img src="Nuevo Logo Afore.png" alt="Logo Afore Coppel" class="h-10">
         </div>
 
         <p class="text-gray-600 leading-relaxed mt-6 text-lg">
@@ -74,14 +75,24 @@
                 <span class="highlight-tag">Problema > Situación > Trámite > Canal</span>.
                 Esto elimina ambigüedades y permite una clasificación precisa.
             </p>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                    <h3 class="font-semibold text-red-800">Antes:</h3>
-                    <p class="text-red-700">Categorías genéricas.</p>
+                    <h3 class="font-semibold text-red-800">Antes: Categorías Genéricas</h3>
+                    <ul class="list-disc list-inside mt-2 text-red-700 space-y-1">
+                        <li><strong>Ambigüedad:</strong> Una queja de "Mala atención" no especificaba la causa.</li>
+                        <li><strong>Datos Inconsistentes:</strong> Cada agente interpretaba la queja a su manera.</li>
+                        <li><strong>Análisis Imposible:</strong> Era difícil identificar patrones o la causa raíz de los problemas.</li>
+                        <li><strong>Reportes Subjetivos:</strong> Los informes carecían de datos duros para la toma de decisiones.</li>
+                    </ul>
                 </div>
                 <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-                    <h3 class="font-semibold text-green-800">Ahora:</h3>
-                    <p class="text-green-700">Granularidad para un análisis profundo.</p>
+                    <h3 class="font-semibold text-green-800">Ahora: Granularidad para el Análisis</h3>
+                     <ul class="list-disc list-inside mt-2 text-green-700 space-y-1">
+                        <li><strong>Claridad Total:</strong> Se sabe exactamente qué, cómo y dónde ocurrió el problema.</li>
+                        <li><strong>Consistencia Garantizada:</strong> La estructura guía al agente a una única clasificación correcta.</li>
+                        <li><strong>Causa Raíz Identificada:</strong> Se puede detectar si un trámite falla recurrentemente o si un canal tiene problemas.</li>
+                        <li><strong>Decisiones Estratégicas:</strong> Los reportes muestran tendencias claras para enfocar recursos y capacitación.</li>
+                    </ul>
                 </div>
             </div>
         </div>
