@@ -3,136 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Mejoras - Nuevo Catálogo de Tipificación</title>
-    <!-- Inclusión de Tailwind CSS para el diseño -->
+    <title>De la Queja a la Estrategia - Nuevo Catálogo de Tipificación</title>
+    <!-- Inclusión de Tailwind CSS y Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* CSS Personalizado */
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .highlight-tag {
-            background-color: #FEF3C7; /* yellow-100 */
-            color: #92400E; /* amber-800 */
-            padding: 0.125rem 0.5rem;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            display: inline-block;
-            line-height: 1.5;
-            border: 1px solid #FDE68A; /* yellow-200 */
-        }
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(90deg, #003366 0%, #005CB9 100%);
+        }
+        @keyframes slow-float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        .animate-slow-float {
+            animation: slow-float 6s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+                border-color: rgba(255, 255, 255, 0.7);
+            }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        /* -- MODIFICACIÓN AQUÍ -- */
+        @keyframes growIn {
+            from {
+                /* Inicia más pequeño y 20px más abajo */
+                transform: scale(0.5) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                /* Termina en su tamaño y posición normal */
+                transform: scale(1) translateY(0px);
+                opacity: 1;
+            }
+        }
+        .timeline-step {
+            opacity: 0;
+            animation: growIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        @keyframes draw-line {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .timeline-line {
+            animation: draw-line 1.2s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+        }
+        /* New styles for the footer */
+        @keyframes aurora {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .aurora-bg {
+            background: linear-gradient(-45deg, #002347, #003366, #005CB9, #0d47a1);
+            background-size: 400% 400%;
+            animation: aurora 15s ease infinite;
+        }
+        @keyframes icon-glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(253, 184, 19, 0.5)); }
+            50% { filter: drop-shadow(0 0 15px rgba(253, 184, 19, 1)); }
+        }
+        .animate-icon-glow {
+            animation: icon-glow 4s ease-in-out infinite;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100">
 
-    <div class="max-w-4xl mx-auto my-8 p-6 sm:p-10 bg-white rounded-2xl shadow-lg">
-
-        <!-- ENCABEZADO CON LOGO -->
-        <div class="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between pb-4 border-b-2 border-gray-200">
-            <h1 class="text-3xl font-bold text-blue-800 mb-4 sm:mb-0">Análisis de Mejoras: Catálogo de Tipificación</h1>
-            <!-- Logo de Afore Coppel - Se cambió la ruta a una relativa -->
-            <!-- Asegúrate de que 'Nuevo Logo Afore.png' esté en la misma carpeta 'docs' que este archivo HTML. -->
-            <img src="Nuevo Logo Afore.png" alt="Logo Afore Coppel" class="h-10">
-        </div>
-
-        <p class="text-gray-600 leading-relaxed mt-6 text-lg">
-            La implementación del nuevo catálogo de quejas es un paso estratégico para transformar la retroalimentación de los clientes en mejoras operativas tangibles. Este análisis detalla los pilares de esta iniciativa.
-        </p>
-
-        <!-- SECCIÓN: Contexto y Objetivo -->
-        <div class="mt-10 p-6 bg-white rounded-lg border border-gray-200">
-            <h2 class="flex items-center text-2xl font-semibold text-blue-800 mb-4">
-                <!-- Icono de Objetivo -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                1. Contexto y Objetivo Estratégico
-            </h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Desde la implementación de <strong class="text-gray-900">Salesforce en marzo de 2023</strong>, se identificó la necesidad de estandarizar la gestión de quejas. El objetivo principal de este nuevo catálogo es:
-            </p>
-            <blockquote class="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-300 text-gray-800 italic">
-                "Capacitar a los usuarios para clasificar rápidamente la interacción, tomando en cuenta el origen del problema para implementar mejoras."
-            </blockquote>
-        </div>
-
-        <!-- SECCIÓN: Estandarización -->
-        <div class="mt-8 p-6 bg-white rounded-lg border border-gray-200">
-            <h2 class="flex items-center text-2xl font-semibold text-blue-800 mb-4">
-                <!-- Icono de Jerarquía -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-                2. Estandarización y Nomenclatura Jerárquica
-            </h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                El pilar del cambio es la <strong class="text-gray-900">estructura jerárquica clara</strong>, organizada en: 
-                <span class="highlight-tag">Problema > Situación > Trámite > Canal</span>.
-                Esto elimina ambigüedades y permite una clasificación precisa.
-            </p>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                    <h3 class="font-semibold text-red-800">Antes: Categorías Genéricas</h3>
-                    <ul class="list-disc list-inside mt-2 text-red-700 space-y-1">
-                        <li><strong>Ambigüedad:</strong> Una queja de "Mala atención" no especificaba la causa.</li>
-                        <li><strong>Datos Inconsistentes:</strong> Cada agente interpretaba la queja a su manera.</li>
-                        <li><strong>Análisis Imposible:</strong> Era difícil identificar patrones o la causa raíz de los problemas.</li>
-                        <li><strong>Reportes Subjetivos:</strong> Los informes carecían de datos duros para la toma de decisiones.</li>
-                    </ul>
-                </div>
-                <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-                    <h3 class="font-semibold text-green-800">Ahora: Granularidad para el Análisis</h3>
-                     <ul class="list-disc list-inside mt-2 text-green-700 space-y-1">
-                        <li><strong>Claridad Total:</strong> Se sabe exactamente qué, cómo y dónde ocurrió el problema.</li>
-                        <li><strong>Consistencia Garantizada:</strong> La estructura guía al agente a una única clasificación correcta.</li>
-                        <li><strong>Causa Raíz Identificada:</strong> Se puede detectar si un trámite falla recurrentemente o si un canal tiene problemas.</li>
-                        <li><strong>Decisiones Estratégicas:</strong> Los reportes muestran tendencias claras para enfocar recursos y capacitación.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="max-w-5xl mx-auto my-10 bg-white rounded-2xl shadow-2xl overflow-hidden">
         
-        <!-- SECCIÓN: Aplicación Práctica -->
-        <div class="mt-8 p-6 bg-white rounded-lg border border-gray-200">
-            <h2 class="flex items-center text-2xl font-semibold text-blue-800 mb-4">
-                 <!-- Icono de Práctica -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                </svg>
-                3. Aplicación Práctica: Escenario Real
-            </h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Para ilustrar el poder del catálogo, consideremos el siguiente caso real de la capacitación:
-            </p>
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <p class="text-gray-800 italic">"Cliente llama molesto porque recibió un mensaje de bienvenida a Afore Coppel, pero él afirma no haber autorizado el cambio de afore cuando pidió informes en la tienda."</p>
+        <!-- ENCABEZADO DE ALTO IMPACTO -->
+        <header class="gradient-bg p-8 text-white text-center">
+            <div class="flex justify-center mb-4">
+                <img src="Nuevo Logo Afore.png" alt="Logo Afore Coppel" class="h-16 drop-shadow-lg">
             </div>
-             <div class="mt-4">
-                <h3 class="font-semibold text-gray-800 mb-2">Clasificación precisa:</h3>
-                 <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li><strong class="font-semibold text-gray-900 w-28 inline-block">Problema:</strong> Atención y Servicio</li>
-                    <li><strong class="font-semibold text-gray-900 w-28 inline-block">Situación:</strong> Se realizó el trámite sin mi consentimiento</li>
-                    <li><strong class="font-semibold text-gray-900 w-28 inline-block">Trámite:</strong> Proceso de Registro / Traspaso</li>
-                    <li><strong class="font-semibold text-gray-900 w-28 inline-block">Canal:</strong> Módulo</li>
-                </ul>
+            <h1 class="text-4xl font-extrabold tracking-tight">De la Queja a la Estrategia</h1>
+            <p class="mt-2 text-xl text-blue-200 max-w-3xl mx-auto">Transformando cada interacción con el cliente en una oportunidad de mejora medible.</p>
+            <div class="mt-6 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-lg p-3 text-center text-base max-w-2xl mx-auto animate-pulse-glow">
+                <span class="font-semibold opacity-90">Iniciativa Estratégica en el Portafolio de Experiencia del Cliente</span> | <span class="font-bold">En Producción desde: 08/10/2025</span>
             </div>
-        </div>
+        </header>
 
-        <!-- Pie de Página / Resumen Final -->
-        <footer class="mt-12 pt-6 border-t border-gray-200">
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-                <h3 class="font-semibold text-lg text-gray-900">En resumen:</h3>
-                <p class="text-gray-700 leading-relaxed mt-2">
-                Se ha creado una herramienta analítica y operativa que convierte las quejas en datos de valor para la mejora continua, justificando plenamente los beneficios de <strong class="font-semibold text-blue-800">aumento en la exactitud</strong> y <strong class="font-semibold text-blue-800">reducción del Tiempo Promedio de Operación (AHT)</strong>.
+        <main class="p-8 md:p-10">
+
+            <!-- SECCIÓN 1: EL DESAFÍO -->
+            <section>
+                <div class="flex items-center">
+                    <div class="bg-red-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h2 class="ml-4 text-3xl font-bold text-gray-800">El Desafío: Falta de entendimiento a las Quejas</h2>
+                </div>
+                <p class="mt-4 text-lg text-gray-600">Antes de esta iniciativa, la gestión de quejas se basaba en categorías genéricas que generaban <strong class="text-gray-900">datos ambiguos y subjetivos.</strong> Esto nos dejaba con "puntos ciegos" que impedían identificar la verdadera causa raíz de las fricciones con nuestros clientes y dificultaban la toma de decisiones estratégicas.</p>
+            </section>
+
+            <!-- SECCIÓN 2: LA SOLUCIÓN ESTRATÉGICA -->
+            <section class="mt-12">
+                 <div class="flex items-center">
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                    </div>
+                    <h2 class="ml-4 text-3xl font-bold text-gray-800">La Solución: Tipificaciones estratégicas, para identificar fricciones</h2>
+                </div>
+                <p class="mt-4 text-lg text-gray-600">Implementamos un catálogo con una nomenclatura jerárquica y estandarizada. Esta estructura actúa como un "ADN", descomponiendo cada queja en sus componentes fundamentales para revelar la historia completa.</p>
+                <div class="mt-8 p-8 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl animate-slow-float">
+                    <h3 class="text-center text-lg text-gray-600 font-semibold mb-2">La Fórmula del Éxito: Un Proceso Lógico</h3>
+                    <!-- Nueva Imagen/Icono -->
+                    <div class="flex justify-center mb-6">
+                        <svg class="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="5" width="5" height="6" rx="1.5" fill="#FDB813" stroke="#005CB9" stroke-width="1.5"/>
+                            <rect x="15" y="5" width="5" height="6" rx="1.5" fill="#FDB813" stroke="#005CB9" stroke-width="1.5"/>
+                            <rect x="9.5" y="14" width="5" height="6" rx="1.5" fill="#FDB813" stroke="#005CB9" stroke-width="1.5"/>
+                            <path d="M6.5 11V14.5C6.5 15.6046 7.39543 16.5 8.5 16.5H9.5" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M17.5 11V14.5C17.5 15.6046 16.6046 16.5 15.5 16.5H14.5" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="relative w-full">
+                        <!-- The connecting line -->
+                        <div class="absolute top-6 left-0 w-full h-1 bg-gray-300">
+                            <div class="h-1 bg-blue-800 timeline-line"></div>
+                        </div>
+                        
+                        <!-- The steps container -->
+                        <div class="relative flex justify-between text-center">
+                            
+                            <!-- Step 1: Problema -->
+                            <div class="w-1/4 timeline-step" style="animation-delay: 0s;">
+                                <div class="relative mx-auto">
+                                    <div class="z-10 flex items-center justify-center w-12 h-12 bg-blue-800 rounded-full text-white font-bold text-lg mx-auto">1</div>
+                                </div>
+                                <p class="mt-3 text-base md:text-lg font-bold text-blue-800 bg-yellow-300 px-3 py-1 rounded-lg inline-block">Problema</p>
+                            </div>
+
+                            <!-- Step 2: Situación -->
+                             <div class="w-1/4 timeline-step" style="animation-delay: 0.3s;">
+                                <div class="relative mx-auto">
+                                    <div class="z-10 flex items-center justify-center w-12 h-12 bg-blue-800 rounded-full text-white font-bold text-lg mx-auto">2</div>
+                                </div>
+                                <p class="mt-3 text-base md:text-lg font-bold text-blue-800 bg-yellow-300 px-3 py-1 rounded-lg inline-block">Situación</p>
+                            </div>
+                            
+                            <!-- Step 3: Trámite -->
+                             <div class="w-1/4 timeline-step" style="animation-delay: 0.6s;">
+                                <div class="relative mx-auto">
+                                    <div class="z-10 flex items-center justify-center w-12 h-12 bg-blue-800 rounded-full text-white font-bold text-lg mx-auto">3</div>
+                                </div>
+                                <p class="mt-3 text-base md:text-lg font-bold text-blue-800 bg-yellow-300 px-3 py-1 rounded-lg inline-block">Trámite</p>
+                            </div>
+                            
+                            <!-- Step 4: Canal -->
+                             <div class="w-1/4 timeline-step" style="animation-delay: 0.9s;">
+                                <div class="relative mx-auto">
+                                    <div class="z-10 flex items-center justify-center w-12 h-12 bg-blue-800 rounded-full text-white font-bold text-lg mx-auto">4</div>
+                                </div>
+                                <p class="mt-3 text-base md:text-lg font-bold text-blue-800 bg-yellow-300 px-3 py-1 rounded-lg inline-block">Canal</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN 3: EL IMPACTO -->
+            <section class="mt-12">
+                <div class="flex items-center">
+                    <div class="bg-blue-100 p-3 rounded-full">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </div>
+                    <h2 class="ml-4 text-3xl font-bold text-gray-800">El Impacto: De Datos a Decisiones</h2>
+                </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                    <div class="bg-white p-6 rounded-xl border-2 border-red-200 shadow-md">
+                        <h3 class="font-bold text-xl text-red-800 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                            Catálogo Anterior
+                        </h3>
+                        <ul class="list-disc list-inside mt-3 text-gray-600 space-y-2">
+                            <li><strong class="text-red-700">Análisis Imposible:</strong> Datos subjetivos que impedían encontrar patrones.</li>
+                            <li><strong class="text-red-700">Decisiones a Ciegas:</strong> Estrategias basadas en intuición, no en evidencia.</li>
+                            <li><strong class="text-red-700">Ineficiencia Operativa:</strong> Tiempos de gestión elevados por falta de claridad.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border-2 border-green-300 shadow-md">
+                        <h3 class="font-bold text-xl text-green-800 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            Nuevo Catálogo
+                        </h3>
+                         <ul class="list-disc list-inside mt-3 text-gray-600 space-y-2">
+                            <li><strong class="text-green-700">Causa Raíz Identificada:</strong> Visibilidad total sobre qué, cómo y dónde ocurren los problemas.</li>
+                            <li><strong class="text-green-700">Decisiones Basadas en Datos:</strong> Reportes que revelan tendencias para optimizar procesos y capacitación.</li>
+                            <li><strong classs="text-green-700">Eficiencia y Precisión:</strong> Reducción del Tiempo Promedio de Operación y aumento en la exactitud.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: COMPARATIVA INTERACTIVA -->
+            <section class="mt-12">
+                <div class="flex items-center">
+                    <div class="bg-purple-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                    </div>
+                    <h2 class="ml-4 text-3xl font-bold text-gray-800">Comparativa Ejecutiva: El Poder del Detalle</h2>
+                </div>
+                <div class="mt-4 text-lg text-gray-600">
+                    <p>La diferencia no es solo semántica, es estratégica. Vea cómo una misma queja se transforma de un dato vago a inteligencia de negocio accionable.</p>
+                </div>
+                <div class="mt-6">
+                    <div class="flex justify-center border-b border-gray-300">
+                        <button id="view-anterior" class="px-6 py-3 font-semibold text-gray-500 border-b-4 border-transparent hover:text-red-600">Visión Anterior</button>
+                        <button id="view-estrategica" class="px-6 py-3 font-semibold text-blue-600 border-b-4 border-blue-600">Visión Estratégica (Nueva)</button>
+                    </div>
+                    <div id="content-anterior" class="p-6 bg-red-50 border-l-4 border-red-500 hidden">
+                        <h3 class="font-bold text-xl text-red-800">Ejemplo: Queja Genérica</h3>
+                        <p class="mt-2 text-gray-700">"El cliente se queja de una mala atención en el módulo."</p>
+                        
+                        <p class="mt-6 font-semibold text-gray-800">En el sistema anterior, las únicas opciones para registrar esto eran categorías ambiguas como:</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2 text-sm text-center">
+                            <div class="bg-red-100 text-red-800 p-2 rounded-md font-semibold">Me atendieron mal</div>
+                            <div class="bg-red-100 text-red-800 p-2 rounded-md font-semibold">Posible Queja CONDUSEF</div>
+                            <div class="bg-red-100 text-red-800 p-2 rounded-md font-semibold">No me atendieron</div>
+                            <div class="bg-red-100 text-red-800 p-2 rounded-md font-semibold">Falta al Protocolo PAM</div>
+                        </div>
+
+                        <ul class="list-disc list-inside mt-6 text-red-900 space-y-1">
+                            <li><strong>¿Qué falló exactamente?</strong> Desconocido.</li>
+                            <li><strong>¿Fue el proceso o el personal?</strong> Incierto.</li>
+                            <li><strong>¿Cómo podemos mejorar?</strong> No hay datos para actuar.</li>
+                        </ul>
+                    </div>
+                    <div id="content-estrategica" class="p-6 bg-blue-50 border-l-4 border-blue-500">
+                        <h3 class="font-bold text-xl text-blue-800">Ejemplo: Diagnóstico Preciso</h3>
+                        <p class="mt-2 text-gray-700">La misma queja, ahora decodificada con un ejemplo real:</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 text-center">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-sm font-bold text-blue-800">PROBLEMA</p>
+                                <p class="text-gray-700 font-semibold">Atención y Servicio</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-sm font-bold text-blue-800">SITUACIÓN</p>
+                                <p class="text-gray-700 font-semibold">Percibí falta de conocimiento</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-sm font-bold text-blue-800">TRÁMITE</p>
+                                <p class="text-gray-700 font-semibold">Retiro por Desempleo</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-sm font-bold text-blue-800">CANAL</p>
+                                <p class="text-gray-700 font-semibold">Módulo</p>
+                            </div>
+                        </div>
+                         <p class="mt-4 text-green-700 font-semibold"><strong>Acción Estratégica:</strong> Reforzar capacitación sobre el proceso de Retiro por Desempleo en los módulos.</p>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-lg text-blue-800">Gama de Opciones Estratégicas</h4>
+                             <div class="overflow-x-auto mt-2">
+                                <div class="grid grid-cols-4 gap-2 text-xs text-center font-semibold">
+                                    <div class="bg-blue-800 text-white p-2 rounded-t-lg">Problema</div>
+                                    <div class="bg-blue-800 text-white p-2 rounded-t-lg">Situación</div>
+                                    <div class="bg-blue-800 text-white p-2 rounded-t-lg">Trámite o Servicio</div>
+                                    <div class="bg-blue-800 text-white p-2 rounded-t-lg">Canal</div>
+
+                                    <div class="bg-gray-100 p-2">Atención y Servicio</div>
+                                    <div class="bg-gray-100 p-2">La cita es muy lejana</div>
+                                    <div class="bg-gray-100 p-2">Alta de Expediente</div>
+                                    <div class="bg-gray-100 p-2">Módulo</div>
+
+                                    <div class="bg-white p-2">Atención con Cita</div>
+                                    <div class="bg-white p-2">Me cobraron por el Servicio</div>
+                                    <div class="bg-white p-2">Emisión de Constancias</div>
+                                    <div class="bg-white p-2">CAT</div>
+
+                                    <div class="bg-gray-100 p-2">Atención sin Cita</div>
+                                    <div class="bg-gray-100 p-2">No pude hacer el trámite...</div>
+                                    <div class="bg-gray-100 p-2">Estado de Cuenta</div>
+                                    <div class="bg-gray-100 p-2">Afore Móvil</div>
+                                    
+                                    <div class="bg-white p-2">...</div>
+                                    <div class="bg-white p-2">Percibí mala actitud...</div>
+                                    <div class="bg-white p-2">Generación de NIP</div>
+                                    <div class="bg-white p-2">Afore Web</div>
+                                    
+                                    <div class="bg-gray-100 p-2">...</div>
+                                    <div class="bg-gray-100 p-2">Tardaron mucho en atenderme</div>
+                                    <div class="bg-gray-100 p-2">Modificación de Datos</div>
+                                    <div class="bg-gray-100 p-2">Módulo de Autoservicio</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- SECCIÓN 5: BENEFICIOS ESTRATÉGICOS DESBLOQUEADOS -->
+            <section class="mt-12">
+                <div class="flex items-center">
+                    <div class="bg-yellow-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                    </div>
+                    <h2 class="ml-4 text-3xl font-bold text-gray-800">Beneficios Estratégicos Desbloqueados</h2>
+                </div>
+                <p class="mt-4 text-lg text-gray-600">Esta iniciativa nos brinda la oportunidad de procesar la información de manera cuantitativa, detectar áreas de oportunidad y buscar acciones que nos lleven a la mejora continua.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all">
+                        <div class="flex justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-blue-800">Optimización de Recursos y Costos</h3>
+                        <p class="mt-2 text-gray-600 text-center">Al identificar con precisión quirúrgica dónde fallan los procesos, enfocamos la inversión y la capacitación solo donde es necesario, eliminando gastos ineficientes.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all">
+                        <div class="flex justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-blue-800">Mejora Proactiva de la Experiencia del Cliente</h3>
+                        <p class="mt-2 text-gray-600 text-center">Pasamos de reaccionar a los problemas a anticiparlos. Los patrones de datos nos permiten corregir fallas sistémicas antes de que impacten a más clientes, aumentando la lealtad.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all">
+                        <div class="flex justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-blue-800">Innovación Basada en Evidencia</h3>
+                        <p class="mt-2 text-gray-600 text-center">La voz del cliente se convierte en nuestra principal fuente de Investigación y Desarrollo (I+D). Los datos estructurados revelan oportunidades para mejorar servicios, optimizar la comunicación y rediseñar procesos de manera continua.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all">
+                        <div class="flex justify-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-blue-800">Cultura de Mejora Continua</h3>
+                        <p class="mt-2 text-gray-600 text-center">Con datos transparentes y accesibles, se fomenta una cultura donde cada equipo es consciente de su impacto y se siente empoderado para proponer mejoras basadas en hechos.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- PIE DE PÁGINA / CONCLUSIÓN -->
+        <footer class="mt-8 p-12 text-white aurora-bg relative overflow-hidden">
+            <div class="text-center relative z-10">
+                 <div class="flex justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-yellow-300 animate-icon-glow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M12 12a4 4 0 100-8 4 4 0 000 8z" /></svg>
+                </div>
+                <h3 class="text-3xl font-bold">Nuestra Ventaja Competitiva: La Estrategia de Focalización</h3>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-blue-200">
+                    Este catálogo trasciende la operación: es un motor de negocio. Transforma la voz del cliente en inteligencia accionable, permitiéndonos <strong class="text-yellow-300 font-bold">invertir con precisión</strong> en las mejoras que garantizan la lealtad y el crecimiento sostenible.
                 </p>
             </div>
         </footer>
+
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewAnteriorBtn = document.getElementById('view-anterior');
+            const viewEstrategicaBtn = document.getElementById('view-estrategica');
+            const contentAnterior = document.getElementById('content-anterior');
+            const contentEstrategica = document.getElementById('content-estrategica');
+
+            viewAnteriorBtn.addEventListener('click', () => {
+                contentAnterior.classList.remove('hidden');
+                contentEstrategica.classList.add('hidden');
+                viewAnteriorBtn.classList.add('text-red-600', 'border-red-600');
+                viewAnteriorBtn.classList.remove('text-gray-500', 'border-transparent');
+                viewEstrategicaBtn.classList.remove('text-blue-600', 'border-blue-600');
+                viewEstrategicaBtn.classList.add('text-gray-500', 'border-transparent');
+            });
+
+            viewEstrategicaBtn.addEventListener('click', () => {
+                contentEstrategica.classList.remove('hidden');
+                contentAnterior.classList.add('hidden');
+                viewEstrategicaBtn.classList.add('text-blue-600', 'border-blue-600');
+                viewEstrategicaBtn.classList.remove('text-gray-500', 'border-transparent');
+                viewAnteriorBtn.classList.remove('text-red-600', 'border-red-600');
+                viewAnteriorBtn.classList.add('text-gray-500', 'border-transparent');
+            });
+        });
+    </script>
 
 </body>
 </html>
