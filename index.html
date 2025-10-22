@@ -13,9 +13,6 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* -- MODIFICACIÓN AQUÍ -- */
-        /* Eliminamos .gradient-bg ya que usaremos clases de Tailwind */
-        
         @keyframes slow-float {
             0%, 100% {
                 transform: translateY(0px);
@@ -27,37 +24,36 @@
         .animate-slow-float {
             animation: slow-float 6s ease-in-out infinite;
         }
-        
-        /* -- MODIFICACIÓN AQUÍ -- */
-        /* Ajustamos pulse-glow para un fondo claro, usando el color amarillo corporativo */
-        @keyframes pulse-glow {
+        /* Animación para el recuadro amarillo del encabezado */
+        @keyframes pulse-glow-yellow {
             0%, 100% {
-                box-shadow: 0 0 8px rgba(253, 184, 19, 0.3); /* Yellow glow */
-                border-color: #FDE68A; /* yellow-200 */
+                box-shadow: 0 0 5px rgba(253, 184, 19, 0.3);
+                border-color: #FDB813; /* Amarillo Coppel */
             }
             50% {
-                box-shadow: 0 0 20px rgba(253, 184, 19, 0.7); /* Brighter yellow glow */
-                border-color: #FDB813; /* yellow-400 */
+                box-shadow: 0 0 20px rgba(253, 184, 19, 0.7);
+                border-color: #FDB813;
             }
         }
-        .animate-pulse-glow {
-            animation: pulse-glow 4s ease-in-out infinite;
+        .animate-pulse-glow-yellow {
+            animation: pulse-glow-yellow 4s ease-in-out infinite;
         }
         
-        @keyframes growIn {
+        @keyframes growIn-popup {
             from {
                 transform: scale(0.5) translateY(20px);
                 opacity: 0;
             }
             to {
-                transform: scale(1) translateY(0px);
+                transform: scale(1) translateY(0);
                 opacity: 1;
             }
         }
         .timeline-step {
             opacity: 0;
-            animation: growIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation: growIn-popup 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
+
         @keyframes draw-line {
             from { width: 0; }
             to { width: 100%; }
@@ -65,6 +61,7 @@
         .timeline-line {
             animation: draw-line 1.2s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
         }
+        /* Estilos para la conclusión */
         @keyframes aurora {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -88,22 +85,18 @@
 
     <div class="max-w-5xl mx-auto my-10 bg-white rounded-2xl shadow-2xl overflow-hidden">
         
-        <!-- ENCABEZADO DE ALTO IMPACTO -->
-        <!-- -- MODIFICACIÓN AQUÍ -- 
-             Cambiamos el fondo a blanco y el texto a oscuro.
-             Añadimos un borde inferior amarillo.
-        -->
-        <header class="bg-white p-8 text-center border-b-4 border-yellow-400">
+        <!-- ENCABEZADO CON LOGO CENTRADO Y FONDO BLANCO -->
+        <header class="bg-white p-8 text-center border-b-8 border-yellow-400">
             <div class="flex justify-center mb-4">
                 <img src="Nuevo Logo Afore.png" alt="Logo Afore Coppel" class="h-16">
             </div>
-            <!-- Cambiamos color de texto a azul corporativo -->
             <h1 class="text-4xl font-extrabold tracking-tight text-blue-900">De la Queja a la Estrategia</h1>
-            <!-- Cambiamos color de texto a gris oscuro -->
             <p class="mt-2 text-xl text-gray-600 max-w-3xl mx-auto">Transformando cada interacción con el cliente en una oportunidad de mejora medible.</p>
-            <!-- Ajustamos el recuadro animado para fondo claro -->
-            <div class="mt-6 bg-yellow-50 border border-yellow-300 text-yellow-900 rounded-lg p-3 text-center text-base max-w-2xl mx-auto animate-pulse-glow">
-                <span class="font-semibold opacity-90">Iniciativa Estratégica en el Portafolio de Experiencia del Cliente</span> | <span class="font-bold">En Producción desde: 08/10/2025</span>
+            
+            <!-- Texto separado en dos líneas -->
+            <div class="mt-6 bg-yellow-100 border-l-4 border-r-4 border-yellow-400 text-blue-900 rounded-lg p-3 text-center text-base max-w-2xl mx-auto animate-pulse-glow-yellow">
+                <p class="font-semibold opacity-90">Iniciativa Estratégica en el Portafolio de Experiencia del Cliente</p>
+                <p class="font-bold">En Producción desde: 08/10/2025</p>
             </div>
         </header>
 
@@ -130,17 +123,15 @@
                 </div>
                 <p class="mt-4 text-lg text-gray-600">Implementamos un catálogo con una nomenclatura jerárquica y estandarizada. Esta estructura actúa como un "ADN", descomponiendo cada queja en sus componentes fundamentales para revelar la historia completa.</p>
                 <div class="mt-8 p-8 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl animate-slow-float">
-                    <h3 class="text-center text-lg text-gray-600 font-semibold mb-2">La Fórmula del Éxito: Un Proceso Lógico</h3>
-                    <!-- Nueva Imagen/Icono -->
+                    
                     <div class="flex justify-center mb-6">
-                        <svg class="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="5" width="5" height="6" rx="1.5" fill="#FDB813" stroke="#005CB9" stroke-width="1.5"/>
-                            <rect x="15" y="5" width="5" height="6" rx="1.5" fill="#FDB813" stroke="#005CB9" stroke-width="1.5"/>
-                            <rect x="9.5" y="14" width="5" height="6" rx="1.5" fill="#FDB813" stroke="#005CB9" stroke-width="1.5"/>
-                            <path d="M6.5 11V14.5C6.5 15.6046 7.39543 16.5 8.5 16.5H9.5" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M17.5 11V14.5C17.5 15.6046 16.6046 16.5 15.5 16.5H14.5" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+                        <!-- Icono de Flujo de Proceso -->
+                        <svg class="h-16 w-16 text-blue-800 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M14 6V4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-2H5V6h9zM19 3l-4 3 4 3V7h5v2h-5v2l-4-3 4-3v2h5V3h-5zM14 18v2H5v-2h9zM19 13l-4 3 4 3v-2h5v-2h-5v-2l-4-3 4-3v2h5v2h-5z"></path>
                         </svg>
                     </div>
+
+                    <h3 class="text-center text-lg text-gray-600 font-semibold mb-8">La Fórmula del Éxito: Un Proceso Lógico</h3>
                     <div class="relative w-full">
                         <!-- The connecting line -->
                         <div class="absolute top-6 left-0 w-full h-1 bg-gray-300">
@@ -215,7 +206,7 @@
                          <ul class="list-disc list-inside mt-3 text-gray-600 space-y-2">
                             <li><strong class="text-green-700">Causa Raíz Identificada:</strong> Visibilidad total sobre qué, cómo y dónde ocurren los problemas.</li>
                             <li><strong class="text-green-700">Decisiones Basadas en Datos:</strong> Reportes que revelan tendencias para optimizar procesos y capacitación.</li>
-                            <li><strong classs="text-green-700">Eficiencia y Precisión:</strong> Reducción del Tiempo Promedio de Operación y aumento en la exactitud.</li>
+                            <li><strong class="text-green-700">Eficiencia y Precisión:</strong> Reducción del Tiempo Promedio de Operación y aumento en la exactitud.</li>
                         </ul>
                     </div>
                 </div>
@@ -272,7 +263,7 @@
                                 <p class="text-gray-700 font-semibold">Retiro por Desempleo</p>
                             </div>
                             <div class="bg-white p-3 rounded-lg shadow-sm">
-                                <p class="text-sm font-bold text-blue-800">CANAL</V>
+                                <p class="text-sm font-bold text-blue-800">CANAL</p>
                                 <p class="text-gray-700 font-semibold">Módulo</p>
                             </div>
                         </div>
